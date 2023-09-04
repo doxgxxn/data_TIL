@@ -1,0 +1,36 @@
+<div class="intro-logo-container bold-text">
+    <img src="/img/mb.png" alt="Website Logo" width="120" height="70">
+    <p>안녕하세요, MATZIP찾기 입니다. <br> 미쉐린 가이드 서울과 블루리본 서베이 레스토랑만 엄선하여 보여드립니다.</p>
+</div>
+ 
+<div class="table-responsive mt-4 mb-4">
+    <div class="container">
+        <table class="table table-hover">
+            <thead class="thead-light">
+                <tr style="background-color: #f8f9fa;">
+                    <th scope="col">식당 이름</th>
+                    <th scope="col">주소</th>
+                    <th scope="col">전화번호</th>
+                    <th scope="col">카테고리</th>
+                    <th scope="col">사이트</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#storeList}}
+                <tr>
+                    <td>
+                        <a href="/stores/detail/{{name}}" class="text-dark" style="text-decoration: none; font-weight: bold;">
+                            {{name}}
+                        </a>
+                    </td>
+                    <td>{{location}}</td>
+                    <td>{{phone}}</td>
+                    <td>{{type}}</td>
+                    <td>{{site}}</td>
+                </tr>
+                {{/storeList}}
+            </tbody>
+        </table>
+    </div>
+</div>
+

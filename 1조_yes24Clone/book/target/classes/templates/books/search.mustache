@@ -1,0 +1,115 @@
+<style>
+    .container {
+        max-width: 1024px;
+        margin: 0 auto; /* Center the container */
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+    }
+    
+    .rank-textStyle {
+      font-weight: bold; /* 굵게 표시 */
+      color: blue; /* 글자색 변경 */
+    }
+    
+    .table {
+        mwidth: 400px; /* 이미지와 정보 컬럼 너비 합계로 최대 너비 설정 */
+        margin-bottom: 20px; /* 푸터와의 간격 */
+        color: #212529;
+        vertical-align: middle;
+        table-layout: fixed;
+        border-collapse: collapse;
+    }
+    
+    .rank-column {
+        width: 30px;
+        vertical-align: top;
+    }
+    .image-column {
+        width: 150px;
+        align-items: center; /* 세로 가운데 정렬 */
+        text-align : center;
+    }
+    
+    .info-column {
+        width: 801px; /* 셀의 최대 너비로 제한 */
+        height: 149.5px;
+        display: flex; /* 내부 요소를 가로 정렬시키기 위해 추가 */
+        flex-direction: column; /* 세로 방향으로 정렬 */
+        justify-content: flex-start; /* 세로 방향에서 상단 정렬 */
+        white-space: nowrap; /* 줄바꿈 방지 */
+        overflow: hidden; /* 넘치는 내용 감추기 */
+        text-overflow: ellipsis; /* 생략 부호 추가 */
+    
+        font-size: 15px; /* 원하는 폰트 크기로 변경 */
+        font-family: 나눔 고딕; /* 원하는 글꼴로 변경 */
+    }
+    
+    .image-button {
+        margin-top : 3px; /* 버튼과의 간격 조절 */
+        text-align: center;
+    }
+    
+    .image-button a {
+        display: inline-block;
+        padding: 2px 10px; /* 버튼의 패딩 설정 */
+        background-color: #E3F0FB; /* 배경색 설정 */
+        color: black; /* 글자색 설정 */
+        border-radius: 3px; /* 버튼 모서리 둥글게 */
+        text-decoration: none; /* 밑줄 제거 */
+    }
+    
+    
+    .page-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px; /* 원하는 여백 설정 */
+    }
+    
+    </style>
+    
+    
+    {{>layouts/header}}
+
+    {{! Book List Table }}
+    <div class="container">
+        <table class="table">
+            <tbody>
+                {{#bookList}}
+                <tr>
+                    <td class="image-column">
+                        <a href="/books/info?id={{id}}">
+                            <img src="https://image.yes24.com/goods/{{id}}/S" alt="Image">
+                        </a>
+                        <div class="image-button">
+                            <a href="https://image.yes24.com/goods/{{id}}/XL"
+                            target="_blank" class="btn btn-primary btn-xs"
+                            alt="Image">확대
+                            </a>
+                        </div>
+                    </td>
+                    <td class="info-column">
+                            <span class="info">
+                            <p style="font-weight: bold; font-size: 18px"><a href="/books/info?id={{id}}">{{name}}</a></p>
+                            {{author}}<br>{{genre}}
+                            </span>
+                    </td>
+                </tr>
+                {{/bookList}}
+            </tbody>
+        </table>
+    </div>
+    
+    {{! Page }}
+    <div class="pagination justify-content-center">
+        <a href="?page={{previous}}&search={{search}}" role="button" class="btn btn-lg bi bi-caret-left-square-fill">prev</a>
+        {{#pageIndex}}
+            <a href="?page={{.}}&search={{search}}">{{.}}</a>&nbsp;&nbsp;&nbsp;
+        {{/pageIndex}}
+        <a href="?page={{next}}&search={{search}}" role="button" class="btn btn-lg bi bi-caret-right-square-fill">next</a>
+    </div>
+
+{{>layouts/footer}}

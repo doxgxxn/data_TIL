@@ -1,0 +1,24 @@
+{{>layouts/header}}
+
+    <table class="table">
+        <thread>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">AUTHOR</th>
+                <th scope="col"></th>
+            </tr>
+        </thread>
+        {{#bookList}}
+        <tbody>
+            <tr>
+                <td>{{Id}}</td>
+                <td>{{year}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+        {{/bookList}}
+    </table>
+    
+
+
+{{>layouts/footer}}

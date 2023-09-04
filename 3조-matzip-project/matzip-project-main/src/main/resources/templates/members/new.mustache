@@ -1,0 +1,22 @@
+{{>layouts/headerLogin}}
+
+<body>
+    <form class="container" action="/members/create" method="post">
+        <div class="mb-3">
+            <label class="form-label">아이디</label>
+            <input type="text" class="form-control" name="name">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">비밀번호</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+        <button type="submit" class="btn btn-outline-success">회원가입</button>
+        <a href="/login" class="btn btn-outline-success">뒤로</a>
+
+    </form>
+    {{#error}}
+    <p style="color: red;">{{error}}</p>
+    {{/error}}
+</body>
+
+{{>layouts/footer}}

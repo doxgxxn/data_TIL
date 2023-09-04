@@ -1,0 +1,24 @@
+{{>layouts/headerLogin}}
+
+<div style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f8f9fa;">
+    <div style="border: 1px solid #ddd; padding: 20px; background-color: white; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+        <h1>로그인하기</h1>
+        <form action="/login" method="post" style="width: 300px; text-align: center;">
+            <label for="name">아이디 </label>
+            <input type="text" id="name" name="name" required style="margin-bottom: 10px;"><br>
+            
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password" required style="margin-bottom: 10px;"><br>
+            
+            <div style="display: flex; justify-content: space-between;">
+                <button type="submit" class="btn btn-outline-success">로그인</button>
+                <a href="/members/new" class="btn btn-outline-success">회원가입</a>
+            </div>
+        </form>
+        {{#error}}
+        <p style="color: red;">{{error}}</p>
+        {{/error}}
+    </div>
+</div>
+
+{{>layouts/footer}}

@@ -1,0 +1,132 @@
+{{>layouts/header}}
+
+<form class="container">
+    <div class="mb-3" style="text-align: center;background-color: #f5f5f5;color: black;padding:20px">
+        <h2>{{site}} 지도</h2>
+    </div>
+    <div id="map" style="width:100%;height:600px;"></div>
+    
+    <script>
+        var HOME_PATH = window.HOME_PATH || '.';
+
+        var cityhall = new naver.maps.LatLng(37.566535, 126.9779692),
+            map = new naver.maps.Map('map', {
+                center: cityhall,
+                zoom: 12
+            }),
+            markers = [],
+            infoWindows = [],
+            circles = [];
+            
+
+        {{#storeList}}
+        restaurant = new naver.maps.LatLng({{latitude}}, {{longitude}}),
+            marker = new naver.maps.Marker({
+                map: map,
+                position: restaurant
+            });
+        
+        var contentString = [
+                '<div class="iw_inner" style="border-radius: 15px">',
+                '   <div style="width:250px;text-align:center;">',
+                '              <h4><h4>{{name}}</h4>',
+                '                 <hr style="margin:5px 20px 1px 20px;background-color: green;"/>',
+                '   </div>',
+                '   <div style="width:250px;padding:3px 5px;">',
+                '   <p fontsize=2>',
+                '      &nbsp;<i class="fa-solid fa-location-dot fa-xs"></i> &nbsp; {{location}}<br>',
+                '      &nbsp;<i class="fa-solid fa-phone fa-xs"></i> &nbsp; {{phone}}<br>',
+                '      &nbsp;<i class="fa-solid fa-star fa-xs"></i> &nbsp; {{type}}</a>',
+                '   </div>',
+                '   </p>',
+                '</div>'
+            ].join('');
+
+        var infowindow = new naver.maps.InfoWindow({
+            content: contentString,
+            Width: 5,
+            backgroundColor: "#FFFAFA",
+            borderColor: "#17594A",
+            borderWidth: 5,
+            anchorSize: new naver.maps.Size(20, 20),
+            anchorSkew: true,
+            anchorColor: "#FFFAFA",
+            pixelOffset: new naver.maps.Point(20, -20)
+        });
+
+        markers.push(marker);
+        infoWindows.push(infowindow);
+
+        {{/storeList}}
+
+        function getClickHandler(seq) {
+            return function(e) {
+                var marker = markers[seq],
+                    infoWindow = infoWindows[seq];
+        
+                if (infoWindow.getMap()) {
+                    infoWindow.close();
+                } else {
+                    infoWindow.open(map, marker);
+                }
+            }
+        }
+        for (var i=0, ii=markers.length; i<ii; i++) {
+            naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
+        }
+
+        var innerMarkers = [];
+        naver.maps.Event.addListener(map, 'click', function(e){
+            var circle_LatLng = {y: e.coord.lat(), _lat: e.coord.lat(), x: e.coord.lng(), _lng: e.coord.lng()},
+                test = { y: 0, _lat: 0, x: 0, _lng: 0 };
+
+            var circle = new naver.maps.Circle({
+                map: map,
+                center: circle_LatLng,
+                radius: 500,
+                fillColor: 'blue',
+                fillOpacity: 0.2
+            });
+
+            circles.push(circle);
+            console.log(circles);
+            for(var i = 0; i<circles.length; i++){
+                circles[i].setMap(null);
+            }
+
+            circles = [];
+
+            for (var i = 0; i < markers.length; i++) {
+                var markerLatLng = markers[i].getPosition();
+                var distance = naver.maps.EPSG3857.getDistance(circle_LatLng, markerLatLng);
+                
+                if (distance <= 500) {
+                    if (!innerMarkers.includes(markers[i])) {
+                        markers[i].setMap(map);
+                        innerMarkers.push(markers[i]);
+                    }
+                } else {
+                    markers[i].setMap(null);
+                    if (innerMarkers.includes(markers[i])) {
+                        innerMarkers.splice(innerMarkers.indexOf(markers[i]), 1);
+                    }
+                }
+            }
+            if (circle_LatLng != test) {
+                
+                console.log(circles);
+                console.log(circle_LatLng);
+                var circle = new naver.maps.Circle({
+                    map: map,
+                    center: circle_LatLng,
+                    radius: 500,
+                    fillColor: 'blue',
+                    fillOpacity: 0.2
+                });
+                circles.push(circle);
+            }
+        });
+    </script>
+</form>    
+
+{{>layouts/footer}}

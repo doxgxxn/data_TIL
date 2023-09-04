@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yes24Clone</title>
+
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, h3, p, a {
+        margin: 0;
+        padding: 0;
+        }
+        /* Basic link styles */
+        a {
+        text-decoration: none;
+        transition: color 0.3s; /* Smooth color transition on hover */
+        }
+        .navbar{
+        width: 1165px;
+        height: 195px;
+        }
+        a:hover {
+        color: #2980b9; /* Slightly darker blue color on hover */
+        }
+
+        i, em, address {
+        font-style: normal;
+        }
+
+        #yHeader {
+        margin-bottom: 20px;
+        height: 195px;
+        background: url(//image.yes24.com/sysimage/renew/gnb/bgGnbN4.png?ver=20200311) repeat-x left top;
+        }
+
+        #yHeader h1 {
+        z-index: 120000 !important;
+        }
+
+        hr {
+        margin-top: 0;
+        display: none;
+        unicode-bidi: isolate;
+        margin-block-start: 0.5em;
+        margin-block-end: 0.5em;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        overflow: hidden;
+        border-style: inset;
+        border-width: 1px;
+        }
+
+        #yHeader #yHeaderWrap {
+        z-index: 110000 !important;
+        font-family: '맑은 고딕','Malgun Gothic',Helvetica,AppleSDGothicNeo,sans-serif;
+        }
+
+        #yHeader #yHeaderWrap * {
+        font-family: '맑은 고딕','Malgun Gothic',Helvetica,AppleSDGothicNeo,sans-serif;
+        }
+
+        #yHeader h1 {
+        position: relative;
+        z-index: 61;
+        margin: 0 auto;
+        width: 960px;
+        }
+
+        #yHeader h1 a.logo {
+        position: absolute;
+        left: 0;
+        top: 42px;
+        }
+
+        #yHeader #yHeaderWrap {
+        margin: 0 auto;
+        position: relative;
+        z-index: 51;
+        width: 960px;
+        text-align: left;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .yesSearch #yesSForm .schIpt label {
+        display: block;
+        height: 48px;
+        line-height: 48px;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderTop {
+        height: 38px;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderTop .cateLi li {
+        position: relative;
+        float: left;
+        height: 38px;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderTop .cateLi li.cateOn {
+        background-color: #fff;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderTop .cateLi li.cateOn a {
+        color: #000;
+        }
+
+
+        #yHeader #yHeaderWrap .yHeaderTop .cateLi li a {
+        position: relative;
+        z-index: 2;
+        display: block;
+        padding: 0 5px;
+        height: 38px;
+        line-height: 38px;
+        color: #fff;
+        white-space: nowrap;
+        font-size: 13px;
+        letter-spacing: -1px;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .yesSearch {
+        position: absolute;
+        left: 200px;
+        top: 68px;
+        z-index: 4;
+        width: 516px;
+        height: 48px;
+        _width: 520px;
+        _height: 52px;
+        border: solid 2px #0080ff;
+        border-radius: 3px;
+        background-color: #fff;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid {
+        height: 112px;
+        }
+
+        Header #yHeaderWrap .yHeaderMid .yesSearch {
+        position: absolute;
+        left: 200px;
+        top: 68px;
+        z-index: 4;
+        width: 516px;
+        height: 48px;
+        _width: 520px;
+        _height: 52px;
+        border: solid 2px #0080ff;
+        border-radius: 3px;
+        background-color: #fff;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .yesSearch #yesSForm .schIpt label input.iptTxt {
+        width: 430px;
+        height: 19px;
+        margin: 0 0 0 17px;
+        padding: 0;
+        height: 48px;
+        border: 0;
+        line-height: 48px;
+        font-size: 18px;
+        font-weight: bold;
+        color: #000;
+        font-weight: 500;
+        *ime-mode: active;
+        outline: none;
+        vertical-align: top;
+        background: transparent;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .yesSearch #yesSForm {
+        position: relative;
+        z-index: 10;
+        margin: 0;
+        padding: 0;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .yesSearch #yesSForm .schBtn {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 60px;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .yesSearch #yesSForm .schBtn button {
+        width: 60px;
+        height: 48px;
+        border: 0;
+        vertical-align: top;
+        background: url(//image.yes24.com//sysimage/renew/gnb/gnbN4.png?ver=161201b) no-repeat 0 0;
+        -webkit-appearance: button;
+        }
+        .ovr {
+        width: 60px;
+        height: 48px;
+        border: 0;
+        vertical-align: top;
+        background: url(//image.yes24.com//sysimage/renew/gnb/gnbN4.png?ver=161201b) no-repeat 0 0;
+        -webkit-appearance: button;
+        }
+
+
+        body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, form, fieldset, p, button {
+        margin: 0;
+        padding: 0;
+        }
+
+        .yesSearch {
+        position: relative; /* 부모 요소를 relative로 설정 */
+        }
+        .search-select{
+        margin : 5px 0 0 447px;
+        }
+        /* mid ad */
+        #yHeader #yHeaderWrap .yHeaderMid .bnAdArea {
+            position: absolute;
+            right: 0;
+            top: 38px;
+            z-index: 1;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .bnAdArea .bnAd {
+            position: relative;
+            width: 180px;
+            height: 112px;
+        }
+        /* mid ad nav */
+        #yHeader #yHeaderWrap .yHeaderMid .bnAdArea .bnAd .bnNav {
+            position: absolute;
+            right: -1px;
+            top: 74px;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .bnAdArea .bnAd .bnNav .pagenNum {
+            display: none;
+            float: left;
+            margin: 0 4px;
+            line-height: 20px;
+            font-size: 11px;
+            color: #999;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .bnAdArea .bnAd .bnNav .pagenNum strong {
+            color: #333;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .bnAdArea .bnAd .bnNav button.prev {
+            background-position: 0 -100px;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .bnAdArea .bnAd .bnNav button {
+            float: left;
+            margin-right: -1px;
+            width: 18px;
+            height: 20px;
+            overflow: hidden;
+            color: transparent;
+            border: 0;
+            cursor: pointer;
+            -webkit-appearance: button;
+            line-height: 999em;
+            text-indent: -999em;
+        }
+
+        #yHeader #yHeaderWrap .yHeaderMid .bnAdArea .bnAd .bnNav button.next {
+            background-position: -20px -100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="yesWrap">
+        <div id="yesHeaderArea">
+            <div id="yHeader">
+                <h1>
+                    <a class="logo" href="/books/index">
+                    <svg role="img" aria-label="YES24" type="image/svg+xml" width="200" height="103" viewBox="0 0 200 103"><image src="https://image.yes24.com/sysimage/renew/gnb/logoN4.png" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://image.yes24.com/sysimage/renew/gnb/logoN4.svg" width="200" height="103" alt="YES24"></image></svg>
+                    </a>
+                </h1>
+                <div id="yHeaderWrap">
+                    <div class="yHeaderTop">
+                        <ul class="cateLi" id="ulCategoryList">
+                            <li class="cate001 cateOn">
+                                <a title="국내도서" href="https://www.yes24.com/Mall/Main/Book/001?CategoryNumber=001" onclick="setWcode('001_002_001')">
+                                    <em class="txt">국내도서</em>
+                                </a>
+                            </li>
+                    </div>
+                    <hr>
+                    <div class="yHeaderMid">
+                        <div class="yesSearch">
+                            <form id="yesSForm" name="HeadForm" method="get" action="/books/search">
+                                <fieldset>
+                                    <span class="schIpt">
+                                        <label>
+                                            <input type="search" class="iptTxt"  name="search" aria-label="Search">
+                                        </label>
+                                    </span>
+                                    <span class="schBtn">
+                                        <button class="ovr" type="submit" title="검색"></button>
+                                    </span>
+                                </fieldset>
+                                <select class="search-select" name="searchOption" id="searchOption">
+                                    <option value="Name" selected>책 제목</option>
+                                    <option value="Author">작가</option>
+                                    <option value="Publisher">출판사</option>
+                                    <option value="All">전체</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div id="gnbBnWrap" class="bnAdArea">
+                            <div class="bnAd">
+                                <div id="gnbBnList">
+                                    <div>
+                                        <img src="https://image.yes24.com/momo/TopCate4163/MidCate006/416252644.jpg" width="180" height="112" border="0" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="yHeaderBot">
+                        <div class="quickCateZone">
+                            <h2>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                </form>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+{{#msg}}
+<div class="alert alert-primary alert-dismissible">
+    {{msg}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"
+            aria-label="Close"></button>
+</div>
+{{/msg}}
+
+ <!-- 옵션 버튼 클릭 시 선택한 검색 옵션을 저장 -->
+<script>
+    $('.btn-group .btn').click(function () {
+        $('#searchOption').val($(this).data('option'));
+    });
+</script>

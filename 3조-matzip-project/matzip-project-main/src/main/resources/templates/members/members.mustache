@@ -1,0 +1,32 @@
+{{>layouts/header}}
+<form action="/delete" method="POST">
+
+    <table class="table">
+        <thread>
+            <tr>
+                <th scope="col">체크박스</th>
+                <th scope="col">name</th>
+                <th scope="col">password</th>
+                <th scope="col">mem_role</th>
+            </tr>
+        </thread>
+        <tbody>
+            {{#memberList}}
+            <tr>
+                <th><input type="checkbox" name="selectedMembers" value="{{name}}"></th>
+                <th>{{name}}</th>
+                <th>
+                {{#password}}
+                    ******** <!-- 비밀번호처럼 표시 -->
+                {{/password}}
+                </th>
+                <th>{{mem_role}}</th>
+            </tr>
+            {{/memberList}}
+        </tbody>
+        
+    </table>
+    <button type="submit" class="btn btn-primary">회원 삭제</button>
+</form>
+
+{{>layouts/footer}}

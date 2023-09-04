@@ -1,0 +1,248 @@
+<style>
+
+  #yDetailTopWrap {
+    font-family: 'Malgun Gothic',Dotum,'돋움',AppleGothic,Lucida Grande,Verdana,Arial,Tahoma,sans-serif;
+  }
+
+  body {
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .yTopBn {
+      border-bottom: solid 1px #ebebeb;
+      background-color: #eee;
+  }
+  .yTopBn img {
+      vertical-align: top;
+      width: 958px;
+  }
+  #yDetailTopWrap {
+    margin: 30px auto 0;
+    width: 960px;
+    text-align: left;
+    background-color: #fff;
+  }
+  #yDetailTopWrap .topColLft {
+    float: left;
+    width: 250px;
+  }
+
+  #yDetailTopWrap .topColLft .gd_imgArea {
+    position: relative;
+  }
+
+  #yDetailTopWrap .topColRgt {
+    float: right;
+    width: 680px;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoTop {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 25px;
+    border-bottom: solid 1px #d8d8d8;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoTop .gd_titArea {
+    display: block;
+    padding-bottom: 10px;
+    line-height: 1.7em;
+    font-weight: normal;
+  }
+  #yDetailTopWrap .topColRgt .gd_infoTop .gd_titArea .gd_name {
+    margin-right: 2px;
+    line-height: 1.2em;
+    color: #333;
+    font-size: 23px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR','Malgun Gothic',Dotum,'돋움',AppleGothic,Lucida Grande,Verdana,Arial,Tahoma,sans-serif;
+  }
+
+  body, h1, h2, h3, h4, input, button {
+    font-family: '맑은 고딕','Malgun Gothic','Apple SD Gothic Neo',AppleGothic,'돋움',Dotum,'굴림',Gulim,Helvetica,sans-serif;
+    font-size: 12px;
+    color: #555;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoTop .gd_titArea h2.gd_name {
+    display: inline;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoTop .gd_pubArea {
+    display: block;
+    line-height: 20px;
+    color: #666;
+    margin-bottom: 15px;
+  }
+
+  #yDetailTopWrap * {
+    font-family: 'Malgun Gothic',Dotum,'돋움',AppleGothic,Lucida Grande,Verdana,Arial,Tahoma,sans-serif;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoTop .gd_pubArea .divi {
+    margin: 4px 4px 0 4px;
+    width: 1px;
+    height: 12px;
+    text-indent: -999em;
+    border-right: solid 1px #ccc;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoTop .gd_pubArea .gd_pub {
+    color: #666;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoTop .gd_pubArea .gd_date {
+    color: #666;
+    white-space: nowrap;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoTop .gd_ratingArea {
+    display: block;
+    line-height: 20px;
+    color: #666;
+  }
+
+  .starPoint {
+    margin-right: 1px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoBot {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoBot .gd_infoTbArea {
+    padding: 19px 0 0 0;
+    width: 430px;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoBot .gd_infoTbArea .gd_infoTb {
+    padding-bottom: 21px;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoBot .gd_infoTbArea table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+  }
+
+  colgroup {
+    display: table-column-group;
+  }
+
+  body, table, tr, td, select, input {
+    font-family: '¸¼Àº °íµñ','Malgun Gothic',"µ¸¿ò","verdana";
+    font-size: 9pt;
+    color: #555555;
+    text-decoration: none;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoBot .gd_infoTbArea table th {
+    padding: 6px 0 6px;
+    line-height: 18px;
+    color: #666;
+    font-weight: normal;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoBot .gd_infoTbArea table td {
+    padding: 5px 0 6px;
+    min-height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #666;
+    text-align: left;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoBot .gd_infoTbArea table td .yes_m {
+    font-family: '맑은 고딕','Malgun Gothic','Apple SD Gothic Neo',AppleGothic,'돋움',Dotum,'굴림',Gulim,Helvetica,sans-serif !important;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoBot .gd_infoTbArea table tr.accentRow th {
+    font-weight: bold;
+    color: #333;
+  }
+
+  #yDetailTopWrap .topColRgt .gd_infoBot .gd_infoTbArea table tr.accentRow td .nor_price {
+    font-weight: bold;
+    font-size: 14px;
+    vertical-align: 0;
+  }
+</style>
+
+{{>layouts/header}}
+  <div class="yTopBn" id="yTopBn">
+    <a href="https://www.yes24.com/campaign/00_Corp/2023/brandStory.aspx">
+      <img src="https://image.yes24.com/dms/202305/브랜드스토리_YES24_상세_띠배너_2x.png" border="0" alt="브랜드스토리">
+    </a>
+  </div>
+  <div id="yDetailTopWrap">
+    {{#bookInfo}}
+    <div class="topColLft">
+      <div class="gd_imgArea">
+        <a href="/books/info?id={{id}}">
+          <img src="https://image.yes24.com/goods/{{id}}/XL" alt="Image" style="max-width: 100%; height: auto;">
+        </a>
+      </div>
+    </div>
+    <div class="topColRgt">
+    {{! 제목영역 }}
+      <div class="gd_infoTop">
+        <div class="gd_titArea">
+          <h2 class="gd_name">{{name}}</h2>
+          </div>
+            <span class="gd_pubArea">
+              <span class="gd_auth">{{author}}</span>
+              <em class="divi"></em>
+              <span class="gd_pub">{{publisher}}</span>
+              <em class="divi"></em>
+              <span class="gd_date">{{date}}</span>
+            </span>
+            <span class="gd_ratingArea">
+              평점 :<span class="starPoint"> {{starpoint}}</span>
+            </span>
+        </div>
+        {{! 가격영역 }}
+      <div class="gd_infoBot">
+        <div class="gd_infoTbArea">
+          <div class="gd_infoTb">
+            <table summary="상품 가격정보 테이블">
+              <colgroup>
+                <col width="110">
+                <col width="*">
+              </colgroup>
+                <tbody>
+                  <tr>
+                    <th scope="row">정가</th>
+                    <td>
+                      <span class="">
+                        <em class="yes_m">{{price}}원</em>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr class="accentRow">
+                    <th scope="row">판매가</th>
+                    <td>
+                      <span class="nor_price">
+                        <em class="yes_m">{{price}}</em>원
+                      </span>(10% 할인)
+                    </td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/bookInfo}}
+  </div>
+
+{{>layouts/footer}}

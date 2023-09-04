@@ -1,0 +1,87 @@
+{{>layouts/header}}
+
+{{#store}}
+
+<form class="container">
+
+
+        <div class="mb-3" style="text-align: center;background-color: #f5f5f5;color: black;padding:30px">
+            <h1>{{name}}</h1></div>
+        <hr/>
+
+        <section>
+            <div vertical-align="middle" style="width:40%;height:400px;float:left;">
+
+            <div class="mb-3">
+                <h2>&nbsp;</h2></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label"><h4>&nbsp;<i class="fa-solid fa-location-dot fa-xs"></i> &nbsp;Location</h4></label>
+                <span class="form-control" name="location">{{location}}</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><h4>&nbsp;<i class="fa-solid fa-phone fa-xs"></i> &nbsp;Phone</h4></label>
+                <span class="form-control" name="phone">{{phone}}</span>
+            </div>
+            <div class="mb-3"> 
+                <label class="form-label"><h4>&nbsp;<i class="fa-solid fa-star fa-xs"></i> &nbsp;Type</h4></label>
+                <span class="form-control" name="type">{{type}}</span></div>
+        </section>
+            <aside id="map" style="width:60%;height:400px;"></aside>
+        <script>
+            var HOME_PATH = window.HOME_PATH || '.';
+
+            var cityhall = new naver.maps.LatLng({{latitude}}, {{longitude}}),
+                map = new naver.maps.Map('map', {
+                    center: cityhall,
+                    zoom: 18
+                }),
+                marker = new naver.maps.Marker({
+                    map: map,
+                    position: cityhall
+                });
+            
+        var contentString = [
+                '<div class="iw_inner">',
+                '   <div style="width:250px;text-align:center;">',
+                '              <h5 style="margin:5px">{{name}}</h5>',
+                '                 <hr style="margin:5px 20px 1px 20px;background-color: green;"/>',
+                '   </div>',
+                '   <div style="width:250px;padding:3px 5px;">',
+                '   <p style="font-size: 16px;">',
+                '      &nbsp;<i class="fa-solid fa-location-dot fa-xs"></i> &nbsp; {{location}}<br>',
+                '      &nbsp;<i class="fa-solid fa-phone fa-xs"></i> &nbsp; {{phone}}<br>',
+                '      &nbsp;<i class="fa-solid fa-star fa-xs"></i> &nbsp; {{type}}</a>',
+                '   </div>',
+                '   </p>',
+                '</div>'
+            ].join('');
+
+            var infowindow = new naver.maps.InfoWindow({
+                content: contentString,
+                Width: 100,
+                backgroundColor: "#FFFAFA",
+                borderColor: "#17594A",
+                borderWidth: 5,
+                anchorSize: new naver.maps.Size(20, 20),
+                anchorSkew: true,
+                anchorColor: "#FFFAFA",
+                pixelOffset: new naver.maps.Point(20, -20)
+            });
+            
+            naver.maps.Event.addListener(marker, "click", function(e) {
+                if (infowindow.getMap()) {
+                    infowindow.close();
+                } else {
+                    infowindow.open(map, marker);
+                }
+            });
+
+    </script>
+    {{/store}}
+    </form>    
+
+
+<div>
+{{>layouts/footer}}</div>

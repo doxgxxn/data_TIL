@@ -1,0 +1,711 @@
+{{! 태그별 디폴트속성 }}
+<style>
+*::before,
+*::after {
+box-sizing: content-box !important;
+}
+
+
+a {
+color: #666;
+text-decoration: none;
+}
+
+p {
+display: block;
+margin-block-start: 1em;
+margin-block-end: 1em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+}
+
+ul {
+list-style: none;
+display: block;
+list-style-type: disc;
+margin-block-start: 1em;
+margin-block-end: 1em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+padding-inline-start: 40px;
+}
+
+h2 {
+display: block;
+font-size: 1.5em;
+margin-block-start: 0.83em;
+margin-block-end: 0.83em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+font-weight: bold;
+}
+
+li {
+list-style: none;
+display: list-item;
+}
+
+input, select, button {
+vertical-align: middle;
+}
+
+body, h1, h2, h3, h4, input, button {
+font-family: '맑은 고딕','Malgun Gothic','Apple SD Gothic Neo',AppleGothic,'돋움',Dotum,'굴림',Gulim,Helvetica,sans-serif;
+font-size: 12px;
+color: #555;
+}
+
+body, table, tr, td, select, input {
+font-family: '맑은 고딕','Malgun Gothic',"돋움","verdana";
+font-size: 9pt;
+color: #555555;
+text-decoration: none;
+}
+body, h1, h2, h3, h4, input, button {
+font-family: '맑은 고딕','Malgun Gothic','Apple SD Gothic Neo',AppleGothic,'돋움',Dotum,'굴림',Gulim,Helvetica,sans-serif ;
+font-size: 12px ;
+color: #555 ;
+}
+dl, ol, ul {
+margin-top: 0;
+margin-bottom: 1rem;
+}
+
+ul, li, h1, h2, p {
+padding: 0;
+margin: 0;
+}
+
+table {
+display: table;
+border-collapse: separate;
+box-sizing: border-box;
+text-indent: initial;
+white-space-collapse: collapse;
+text-wrap: wrap;
+line-height: normal;
+font-weight: normal;
+font-size: medium;
+font-style: normal;
+color: -internal-quirk-inherit;
+text-align: start;
+border-spacing: 2px;
+border-color: gray;
+font-variant: normal;
+}
+
+tbody {
+display: table-row-group;
+vertical-align: middle;
+border-color: inherit;
+}
+
+tr {
+display: table-row;
+vertical-align: inherit;
+border-color: inherit;
+}
+
+td {
+display: table-cell;
+vertical-align: inherit;
+}
+
+img, fieldset, iframe {
+border: 0 none;
+}
+</style>
+{{!Wrapper 전체영역 CSS}}
+<style>
+/* Wrapper가 전체를감싸고 */
+/* 좌측영역에 bestMenu, 우측영역에 bestList가 있는 구조입니다. */
+div {
+display : block;
+}
+
+body {
+background-color: #fff;
+text-align: center;
+}
+#wrapper {
+width: 960px;
+margin: 0 auto;
+text-align: left;
+}
+#bestList {
+margin: 7px 0 0 197px;
+width: 763px;
+overflow: hidden;
+}
+</style>
+{{!bestList CSS}}
+{{!bestCate CSS}}
+<style>
+/* bestCate */
+#bestCate {
+width: 187px;
+float: left;
+margin-top: 5px;
+}
+
+.browse {
+    background: url(//image.yes24.com/sysimage/bestSeller/bg_categoryBottom.gif) no-repeat left bottom;
+    
+    margin-bottom: 10px;
+}
+
+.browse ul.dpth1 {
+background: url(//image.yes24.com/sysimage/bestSeller/bg_categoryTop.gif) no-repeat left top;
+padding: 11px 0 11px 11px;
+font-size: 12px ;
+box-sizing: border-box;
+}
+
+.browse li {
+    font-weight: bold;
+    background: url(//image.yes24.com/sysimage/bestSeller/i_catePlus.gif) no-repeat left 1px;
+    padding-left: 15px;
+    margin-bottom: 5px;
+}
+
+.browse li.open {
+    background: url(//image.yes24.com/sysimage/bestSeller/i_cateMinus.gif) no-repeat left top;
+}
+
+.browse li a.selected {
+    background: #EAF5F6;
+    color: #3AB0C3;
+    font-weight: bold;
+    font-family: '맑은 고딕','Malgun Gothic',Helvetica,AppleSDGothicNeo,sans-serif;
+}
+
+.browse ul.dpth2 {
+    margin-top: 5px;
+}
+
+#bestCate h1 {
+text-indent: -9000px;
+background: url(//image.yes24.com/sysimage/bestSeller/t_bestSeller.gif) no-repeat left top;
+margin-bottom: 10px;
+}
+
+#bestCate h1 a {
+display: block;
+width: 187px;
+height: 60px;
+}
+</style>
+{{! location and tap CSS}}
+<style>
+/* bestList */
+#bestList .location {
+background: url(//image.yes24.com/sysimage/categoryN/bg_location.gif) no-repeat left top;
+height: 19px;
+padding: 7px 0 0 15px;
+margin-bottom: 10px;
+}
+
+#bestList .Tab {
+background: url(//image.yes24.com/sysimage/bestSeller/bg_topTab.gif) no-repeat left top;
+width: 753px;
+height: 33px;
+margin-left: 10px;
+margin-bottom: -0px;
+padding: 0;
+}
+
+#bestList .Tab li {
+float: left;
+text-indent: -9000px;
+}
+
+#bestList .Tab a {
+display: block;
+overflow: hidden;
+height: 33px;
+}
+
+#bestList #yes24 a {
+background: url(//image.yes24.com/sysimage/bestSeller/tab_bestYes24_off.gif) no-repeat left top;
+width: 130px;
+margin-left: 285px;
+}
+
+#bestList #month1 a {
+background: url(//image.yes24.com/sysimage/bestSeller/tab_bestMonth_selected.gif) no-repeat left top;
+width: 86px;
+}
+
+#bestList #week a {
+background: url(//image.yes24.com/sysimage/bestSeller/tab_bestWeek_on.gif) no-repeat left top;
+width: 83px;
+}
+
+#bestList #day a {
+background: url(//image.yes24.com/sysimage/bestSeller/tab_bestDay_on.gif) no-repeat left top;
+width: 86px;
+}
+
+#bestList #steady a {
+background: url(//image.yes24.com/sysimage/bestSeller/tab_steady_off.gif) no-repeat left top;
+width: 82px;
+}
+
+</style>
+
+{{! title CSS}}
+<style>
+#bestList div.title {
+background: url(//image.yes24.com/sysimage/bestSeller/bg_tabRound.gif) no-repeat left top;
+width: 753px;
+margin-left: 10px;
+padding: 22px 0 0 22px;
+}
+
+#bestList div.title h2 {
+color: #3074B5;
+font-size: 21px;
+letter-spacing: -2px;
+border-bottom: 1px solid #E1E1E1;
+padding-bottom: 17px;
+width: 723px;
+font-weight: bold;
+}
+
+#bestList div.title h2 span {
+font-size: 12px;
+display: block;
+letter-spacing: 0;
+font-weight: normal;
+} 
+</style>
+{{! period CSS }}
+<style>
+#bestList .period {
+width: 723px;
+margin: 10px 0 7px 32px;
+float: left;
+display: inline;
+}
+#bestList .period img{
+vertical-align: middle;
+}
+
+.period {
+font-size: 11px;
+color: #888;
+}
+</style>
+{{! list CSS }}
+<style>
+#bestList table {
+border-collapse: collapse;
+}
+
+table.list {
+width: 753px;
+margin: 0 0 0 10px;
+}
+
+table.list .num {
+width: 30px;
+text-align: center;
+}
+
+table.list td {
+vertical-align: top;
+padding: 20px 0 0 0;
+}
+
+table.list .image {
+width: 100px;
+text-align: center;
+background: url(//image.yes24.com/sysimage/categoryN/line_list.gif) repeat-x bottom;
+vertical-align: top;
+}
+
+table.list .image img {
+margin: 0 0 5px 0;
+display: block;
+max-width: 100px;
+}
+
+
+table.list .image .goodsImgW {
+position: relative;
+display: inline-block;
+_display: inline;
+_height: 100px;
+text-align: left;
+border: solid 1px #fff;
+}
+
+table.list td.goodsTxtInfo {
+padding: 20px 20px 0 0;
+}
+
+table.list td div.aupu {
+margin: 5px 0;
+}
+
+table.list td div.aupu a {
+font-weight: normal;
+color: #555;
+}
+
+.priceB {
+FONT-FAMILY: '맑은 고딕','Malgun Gothic',"돋움","verdana";
+font-size: 9pt;
+font-weight: bold;
+color: #EB5D07;
+line-height: 120%;
+text-decoration: none;
+}
+
+.price {
+FONT-FAMILY: '맑은 고딕','Malgun Gothic',"돋움","verdana";
+font-size: 9pt;
+font-weight: normal;
+color: #EB5D07;
+line-height: 120%;
+text-decoration: none;
+}
+
+
+table.list td.line {
+padding: 0 0 18px 0;
+background: url(//image.yes24.com/sysimage/categoryN/line_list.gif) repeat-x bottom;
+vertical-align: top;
+}
+
+table.list .read {
+line-height: 150%;
+letter-spacing: 0;
+color: #555;
+}
+
+table.list td p {
+margin-bottom: 5px;
+}
+
+.read {
+padding-top: 5px;
+line-height: 18px;
+letter-spacing: -1px;
+color: #888;
+}
+
+.page-button {
+display: flex;
+justify-content: center;
+margin-top: 20px; /* 원하는 여백 설정 */
+}
+
+.custom-button {
+display: inline-block;
+padding: 10px 20px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+text-decoration: none;
+}
+
+.custom-button-lg {
+font-size: 18px;
+padding: 15px 30px;
+}
+
+/* 버튼에 호버 효과 추가 */
+.custom-button:hover {
+background-color: #0056b3;
+}
+
+.custom-pagination {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+.custom-pagination a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.custom-pagination a.page-link {
+    color: #555555;
+    background-color: transparent;
+    border: none;
+}
+
+.custom-pagination a:hover {
+    background-color: #0056b3;
+}
+
+.custom-pagination .btn-lg {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+
+</style>
+
+
+{{!Layouts}}
+{{>layouts/header}}
+<div id="wrapper">
+    {{! bestCate layout }}
+    <div id="bestCate">
+        <h1>
+            <a href="/books/index">베스트셀러</a>
+        </h1>
+        <div id="bestMenu" class="browse">
+            <ul class="dpth1">
+                <li id="category001" class="open" style="cursor:pointer" onclick="open_subDepth('001', event)">
+                    <a href="/24/category/bestseller?CategoryNumber=001&amp;sumgb=09" class="">국내도서</a>
+                    <ul class="dpth2" style="">
+                        <li id="category001001001" class="" style="cursor:pointer" onclick="open_subDepth('001001001',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001001&amp;sumgb=09" class="">가정 살림</a>
+                        </li>
+                        <li id="category001001011" class="" style="cursor:pointer" onclick="open_subDepth('001001011',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001011&amp;sumgb=09" class="">건강 취미</a>
+                        </li>
+                        <li id="category001001025" class="" style="cursor:pointer" onclick="open_subDepth('001001025',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001025&amp;sumgb=09" class="">경제 경영</a>
+                        </li>
+                        <li id="category001001004" class="" style="cursor:pointer" onclick="open_subDepth('001001004',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001004&amp;sumgb=09" class="">국어 외국어 사전</a>
+                        </li>
+                        <li id="category001001014" class="" style="cursor:pointer" onclick="open_subDepth('001001014',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001014&amp;sumgb=09" class="">대학교재</a>
+                        </li>
+                        <li id="category001001008" class="" style="cursor:pointer" onclick="open_subDepth('001001008',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001008&amp;sumgb=09" class="">만화/라이트노벨</a>
+                        </li>
+                        <li id="category001001022" class="" style="cursor:pointer" onclick="open_subDepth('001001022',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001022&amp;sumgb=09" class="">사회 정치</a>
+                        </li>
+                        <li id="category001001046" class="" style="cursor:pointer" onclick="open_subDepth('001001046',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001046&amp;sumgb=09" class="">소설/시/희곡</a>
+                        </li>
+                        <li id="category001001015" class="" style="cursor:pointer" onclick="open_subDepth('001001015',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001015&amp;sumgb=09" class="">수험서 자격증</a>
+                        </li>
+                        <li id="category001001016" class="" style="cursor:pointer" onclick="open_subDepth('001001016',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001016&amp;sumgb=09" class="">어린이</a>
+                        </li>
+                        <li id="category001001047" class="" style="cursor:pointer" onclick="open_subDepth('001001047',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001047&amp;sumgb=09" class="">에세이</a>
+                        </li>
+                        <li id="category001001009" class="" style="cursor:pointer" onclick="open_subDepth('001001009',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001009&amp;sumgb=09" class="">여행</a>
+                        </li>
+                        <li id="category001001010" class="" style="cursor:pointer" onclick="open_subDepth('001001010',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001010&amp;sumgb=09" class="">역사</a>
+                        </li>
+                        <li id="category001001007" class="" style="cursor:pointer" onclick="open_subDepth('001001007',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001007&amp;sumgb=09" class="">예술</a>
+                        </li>
+                        <li id="category001001027" class="" style="cursor:pointer" onclick="open_subDepth('001001027',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001027&amp;sumgb=09" class="">유아</a>
+                        </li>
+                        <li id="category001001019" class="" style="cursor:pointer" onclick="open_subDepth('001001019',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001019&amp;sumgb=09" class="">인문</a>
+                        </li>
+                        <li id="category001001020" class="" style="cursor:pointer" onclick="open_subDepth('001001020',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001020&amp;sumgb=09" class="">인물</a>
+                        </li>
+                        <li id="category001001026" class="" style="cursor:pointer" onclick="open_subDepth('001001026',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001026&amp;sumgb=09" class="">자기계발</a>
+                        </li>
+                        <li id="category001001002" class="" style="cursor:pointer" onclick="open_subDepth('001001002',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001002&amp;sumgb=09" class="">자연과학</a>
+                        </li>
+                        <li id="category001001024" class="" style="cursor:pointer" onclick="open_subDepth('001001024',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001024&amp;sumgb=09" class="">잡지</a>
+                        </li>
+                        <li id="category001001023" class="" style="cursor:pointer" onclick="open_subDepth('001001023',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001023&amp;sumgb=09" class="">전집</a>
+                        </li>
+                        <li id="category001001021" class="" style="cursor:pointer" onclick="open_subDepth('001001021',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001021&amp;sumgb=09" class="">종교</a>
+                        </li>
+                        <li id="category001001005" class="" style="cursor:pointer" onclick="open_subDepth('001001005',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001005&amp;sumgb=09" class="">청소년</a>
+                        </li>
+                        <li id="category001001003" class="" style="cursor:pointer" onclick="open_subDepth('001001003',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001003&amp;sumgb=09" class="">IT 모바일</a>
+                        </li>
+                        <li id="category001001044" class="" style="cursor:pointer" onclick="open_subDepth('001001044',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001044&amp;sumgb=09" class="">초등참고서</a>
+                        </li>
+                        <li id="category001001013" class="" style="cursor:pointer" onclick="open_subDepth('001001013',event)">
+                            <a href="/24/category/bestseller?CategoryNumber=001001013&amp;sumgb=09" class="">중고등참고서</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{! bestList layout }}
+    <div id="bestList">
+        <p class="location">
+            welcome ></a>
+            <a href="/24/category/bestseller">베스트셀러 메인 ></a>
+            <a href="/books/index">월별 베스트 ></a>
+            <a href="/books/index">국내도서</a>
+            
+        </p>
+        {{! tap layout }}
+        <ul class="Tab">
+            <li id="yes24"><a href="/books/index">예스24 베스트셀러</a></li>
+            <li id="month1"><a href="/books/index">월별 베스트</a></li>
+            <li id="week"><a>주별 베스트</a></li>
+            <li id="day"><a>일별 베스트</a></li>
+            <li id="steady"><a>스테디셀러</a></li>
+        </ul>
+        {{! title layout }}
+        <div class="title">
+            <h2>2023년 9월 국내도서 종합 베스트
+                <span>전월 온라인과 매장에서의 판매 데이터를 기준으로 집계되었습니다.</span>
+            </h2>
+            
+        </div>
+        {{! period }}
+        <div class="period">
+            <form action="/books/page" method="get">
+                <select name="year" id="year">
+                    <option value="2008">2008</option>		        
+                    <option value="2009">2009</option>		        
+                    <option value="2010">2010</option>		        
+                    <option value="2011">2011</option>		        
+                    <option value="2012">2012</option>		        
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023" selected="">2023</option>
+                </select>
+                <img src="https://image.yes24.com/sysimage/bestSeller/img_month.gif" alt="월">
+                <select name="month" id="month">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8" selected="">8</option>
+                    <option value="9">9</option>
+                    <option value="9">10</option>
+                    <option value="9">11</option>
+                    <option value="9">12</option>
+                </select>
+                <input type="image" src="https://image.yes24.com/sysimage/bestSeller/b_enquiry.gif" alt="조회">
+            </form>
+        </div>
+        {{! Book List Table }}
+        <table id = "category_layout" class="list">
+            <tbody>
+                {{#bookList}}
+                <tr>
+                    <td class = "num">
+                        <p class = "rank-textStyle">{{rank}}.</p>
+                    </td>
+                    <td rowspan="2" class="image">
+                        <div class="goodsImgW">
+                            <a href="/books/info?id={{id}}">
+                                <img src="https://image.yes24.com/goods/{{id}}/S" alt="Image" style="max-width: 100%; height: auto;">
+                            </a>
+                            <a href="https://image.yes24.com/goods/{{id}}/XL">
+                                <img src="https://image.yes24.com/sysimage/categoryN/b_preview.gif" alt="미리보기">
+                            </a>
+                        </div>
+                    <td class="goodsTxtInfo">
+                        <p>[도서]
+                            <a href="/books/info?id={{id}}" style="font-weight: bold; text-decoration: none;">{{name}}</a> 
+                            <a href="/books/info?id={{id}}" target="_blank" >
+                                <img src="https://image.yes24.com/sysimage/bestseller/b_newwin.gif" alt="새창">
+                            </a>
+                        </p>
+                    <div class="aupu">{{author}} | {{genre}}</div>
+                    <p>
+                        {{price}}원 →
+                        <span class="priceB">{{price2}}원</span>(
+                        <span class="price">10%</span> 할인) | YES포인트
+                        <span class="price">{{priceSale}}</span>(
+                        <span class="price">5%</span> 지급)
+                    </p>
+                </tr>
+                <tr>
+                    <td class="line"></td>
+                    <td colspan="2" class="line ">
+                        <p class="read">{{intro}}</p>
+                    </td>
+                </tr>
+                {{/bookList}}
+            </tbody>
+        </table>
+        {{! Page }}
+        <div style="margin-left: 300px">
+            <a href="?page={{previous}}&year={{year}}&month={{month}}" role="button">
+                <img src="http://image.yes24.com/sysimage/categoryN/b_goPre.gif" alt="이전"style="vertical-align: middle;">
+            </a>
+            {{#pageIndex}}
+                <a href="?page={{.}}&year={{year}}&month={{month}}" style="color: #555555;">&nbsp;&nbsp;{{.}}</a>
+            {{/pageIndex}}
+            &nbsp;&nbsp;
+            <a href="?page={{next}}&&year={{year}}&month={{month}}" role="button">
+                <img src="http://image.yes24.com/sysimage/categoryN/b_goNext.gif" alt="다음"style="vertical-align: middle;">
+            </a>
+        </div>
+    </div> {{! BestList }}
+</div> {{! /wrapper}}
+
+
+<script>
+    // 페이지가 로드될 때 실행할 함수
+window.onload = function() {
+// <select> 요소 가져오기
+// year selected
+var selectBox = document.getElementById("year");
+var desiredValue = "{{year}}";
+
+// 선택 옵션 설정
+for (var i = 0; i < selectBox.options.length; i++) {
+    //console.log("desiredValue:::" + desiredValue + ":::i:::" + i);
+    if (selectBox.options[i].value === desiredValue) {
+        selectBox.selectedIndex = i;
+        break;
+    }
+}
+
+// month selected
+var selectBox = document.getElementById("month");
+var desiredValue = "{{month}}";
+
+// 선택 옵션 설정
+for (var i = 0; i < selectBox.options.length; i++) {
+    console.log("desiredValue:::" + desiredValue + ":::i:::" + selectBox.options[i].value);
+    if (selectBox.options[i].value === desiredValue) {
+        selectBox.selectedIndex = i;
+        break;
+    }
+}
+};
+</script>
+
+{{>layouts/footer}}
