@@ -1,0 +1,41 @@
+{{>layouts/header}}
+
+<style>
+    .center-text {
+        text-align: center;
+        color: black;
+        font-weight: bold;
+    }
+
+    /* 링크 스타일 설정 */
+    a {
+        text-decoration: none; /* 밑줄 제거 */
+    }
+
+    .show-title {
+        font-size: 35px;
+        color: white;
+        font-weight: bold;
+        background-color: #04B45F;
+        padding: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+</style>
+
+<div class="container">
+    <p class="show-title">{{weekDay}}</p>
+    <div class="row">
+        {{#webtoonList}}
+        <div class="col-md-2">
+            <a href="/webtoons/{{webtoonId}}">
+                <img src="{{thumbnailUrl}}" alt="Thumbnail" style="max-width: 100%;">
+                <p class="center-text">{{title}}</p>
+            </a>
+        </div>
+        {{/webtoonList}}
+    </div>
+</div>
+
+
+{{>layouts/footer}}

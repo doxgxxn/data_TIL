@@ -1,0 +1,17 @@
+{{>layouts/header}}
+
+{{#webtoonData}}
+<form class="container" action="/webtoons/reviews/create/{{webtoonId}}" method="post">
+{{/webtoonData}}
+    <div class="mb-3">
+        <label class="form-label">글 제목</label>
+        <input type="text" class="form-control" name="title">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">글 내용</label>
+        <textarea class="form-control" rows="5" name="content"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">제출</button>
+</form>
+
+{{>layouts/footer}}

@@ -1,0 +1,91 @@
+{{>layouts/header}}
+<style>
+    .center-text {
+        text-align: center;
+        color: black;
+        font-weight: bold;
+        font-size:15px;
+        margin: 5px 0;
+        margin-top: 7px; /* 텍스트와 이미지를 분리하기 위한 위쪽 여백을 추가 */
+    }
+    /* 링크에 마우스 커서가 올라갈 때 밑줄 표시 */
+    a:hover {
+        text-decoration: underline 2px black; /* 2픽셀 두께의 밑줄 추가 */
+    }
+    /* 이미지에 마우스 커서가 올라갈 때 확대 효과 */
+    a:hover img {
+        transform: scale(1.2); /* 확대 효과 */
+        transition-duration: 0.5s; /* 부드러운 전환 */
+    }
+
+    a img {
+        max-width: 100%; /* 이미지의 최대 너비를 컨테이너에 맞게 설정 */
+        height: auto; /* 비율 유지를 위해 높이 자동 조정 */
+        transition-duration: 0.5s; /* 부드러운 전환 */
+    }
+
+    /* 페이징 컨트롤의 글씨체와 글씨색 변경 */
+    .pagination a {
+        font-weight: bold;
+        color: #04B45F; /* 링크의 색상을 초록색으로 변경 */
+    }
+
+    /* 버튼 형태로 변경 */
+    .pagination a {
+        display: inline-block;
+        padding: 5px 10px;
+        margin-right: 5px;
+        border: 1px solid #04B45F;
+        background-color: #fff;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+    
+    .pagination a:hover,.pagination a.active{
+        background-color: #04B45F;
+        color: #fff;
+    }
+
+    /* 링크 스타일 설정 */
+    a {
+        text-decoration: none; /* 밑줄 제거 */
+        display: block; /* 링크를 블록 요소로 변경 */
+        overflow: hidden; /* 내부 요소가 컨테이너를 벗어나지 않도록 함 */
+        text-align: center; /* 텍스트와 이미지를 가운데 정렬 */
+    }
+</style>
+<!-- Bootstrap의 컨테이너 클래스를 사용하여 페이지 내용의 너비를 제한하고 중앙에 배치 -->
+<div class="container">
+
+    <div class="row"> <!-- Bootstrap의 row 클래스를 사용하여 행 생성 -->
+        <!-- Mustache.js 라이브러리를 이용해 webtoonList라는 배열을 순회(iterate) -->
+        {{#webtoonList}}
+        <!-- Bootstrap의 col-md-2 클래스를 사용하여 열 생성. md-20은 무시되는 것으로 보임. -->
+        <div class="col-md-2 md-20">
+            <!-- 각 웹툰 링크 생성. 클릭 시 /webtoons/ 다음에 webtoonId 값이 붙은 URL로 이동 -->
+            <a href="/webtoons/{{webtoonId}}">
+                <!-- 썸네일 이미지 출력. thumbnailUrl 값이 src 속성에 들어감. max-width: 100% 스타일로 이미지가 부모 요소 너비보다 크게 나오지 않도록 함 -->
+                <img src="{{thumbnailUrl}}" alt="썸네일" style="max-width: 100%;">
+                <!-- 웹툰 제목 출력. title 값이 p 태그 안에 들어감. center-text 클래스 스타일 적용(중앙 정렬 등)-->
+                <p class="center-text">{{title}}</p>
+            </a>
+        </div>
+        {{/webtoonList}} <!-- Mustache.js 반복문 종료 -->
+    </div>
+</div>
+
+    {{! Page }}
+    <div class="pagination justify-content-center">
+        <!-- onclick 이벤트 추가 -->
+        <a href="?page={{first}}" class="btn btn-link"><i class="fas fa-angle-double-left"></i>맨앞</a>
+        <a href="?page={{previous}}" class="btn btn-link"><i class="fas fa-angle-left"></i>이전</a>
+        {{#pageIndex}}
+            <a href="?page={{.}}" class="btn btn-link active">{{.}}</a>
+        {{/pageIndex}}
+        <a href="?page={{next}}" class="btn btn-link">다음 <i class="fas fa-angle-right"></i></a>
+        <a href="?page={{last}}" class="btn btn-link">맨뒤 <i class="fas fa-angle-double-right"></i></a>
+    </div>
+</div>
+
+
+{{>layouts/footer}}

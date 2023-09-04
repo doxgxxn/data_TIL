@@ -1,0 +1,91 @@
+{{>layouts/header}}
+
+<style>
+        .body, .center-text, th, td{
+            font-family : "Sunflower";
+            font-weight : bold;
+        }
+        /* 중앙 텍스트 스타일 */
+        .center-text {
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        /* 링크 스타일 */
+        a {
+            text-decoration: none;
+            color: #007BFF; /* 링크 색상 변경 */
+        }
+
+        /* 컨테이너 스타일 */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* 왼쪽 영역 스타일 */
+        .left {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* 이미지 스타일 */
+        .left img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* 오른쪽 영역 스타일 */
+        .right {
+            flex: 2;
+            padding: 20px;
+        }
+
+        /* 테이블 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+</style>
+
+<div class="container">
+        <div class="left">
+            <img src="{{thumbnail}}" alt="Thumbnail">
+        </div>
+        <div class="right">
+            <table>
+                <thead>
+                    <tr>
+                        <th>리뷰 제목</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#thisReviews}}
+                    <tr>
+                        <td><a href="/webtoons/reviews/show/{{id}}">{{title}}</td>
+                    </tr>
+                </tbody>
+                {{/thisReviews}}
+            </table>
+        </div>
+    </div>
+
+{{>layouts/footer}}

@@ -1,0 +1,44 @@
+{{>layouts/header}}
+<style>
+    /* 컨테이너 스타일 */
+    .container {
+        display: flex;
+        align-items: center;
+    }
+
+    /* 이미지 스타일 */
+    .image {
+        max-width: 200px; /* 이미지의 최대 너비 조절 */
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 20px; /* 이미지 오른쪽 여백 설정 */
+    }
+
+    /* 텍스트 스타일 */
+    .text-container {
+        margin-left:100px;
+        flex: 1;
+    }
+
+    /* 버튼 스타일 */
+    .btn {
+        margin-right: 10px;
+    }
+    h2{
+        margin-top:50px;
+    }
+</style>
+<div class="container">
+    {{#webtoonReviewList}}
+    <img src="{{thumbnailUrl}}" alt="웹툰 이미지" class="image">
+    <div class="text-container">
+        <h1>웹툰명: <strong>{{webtoonTitle}}</strong></h1>
+        <h2><strong>글 제목:</strong> {{title}}</h2>
+        <h2><strong>글 내용:</strong> {{content}}</h2>
+        <a href="/webtoons/reviews/edit/{{id}}" class="btn btn-primary">수정</a>
+        <a href="/webtoons/reviews/delete/{{id}}" class="btn btn-danger">삭제</a>
+    </div>
+    {{/webtoonReviewList}}
+</div>
+{{>layouts/footer}}

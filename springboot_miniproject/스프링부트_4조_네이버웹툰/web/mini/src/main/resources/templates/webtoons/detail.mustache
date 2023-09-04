@@ -1,0 +1,145 @@
+{{>layouts/header}}
+    <style>
+        .wrapper-box {
+            display: inline-block;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 20px;
+        }
+        .image-box {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+            width: 50%;
+        }
+        .image {
+            max-width: 42%;
+        }
+        .description-box {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 60px;
+            max-width: 42%;
+            box-sizing: border-box;
+            border: 2px solid #E6F8E0; /* 테두리 색 변경 */
+            order-radius: 10px;
+            background-color: #E6F8E0; /* 박스 색 변경 */
+        }
+        .info-box {
+            display: inline-block; /* 인라인 블록으로 설정하여 옆으로 나란히 배치 */
+            vertical-align: middle;
+            margin-top: 20px;
+            text-align: left; /* 정보를 왼쪽으로 정렬 */
+        }
+        .title {
+            font-size: 50px;
+            font-weight: bold;
+            background-color: white; /* 박스 배경색 */
+            color: black; /* 텍스트 색상 */
+            padding: 5px 5px; /* 내부 여백 설정 */
+            border-radius: 5px; /* 박스 테두리 반경 설정 */
+        }
+        .author {
+            font-size: 22px;
+        }
+        .rating {
+            margin-top: 5px;
+            font-size: 22px;
+        }
+        .age-limit {
+            margin-top: 5px;
+            font-size: 22px;
+        }
+        .publication-date {
+            margin-top: 5px;
+            font-size: 22px;
+        }
+        .interest {
+            margin-top: 5px;
+            font-size: 22px;
+        }
+        .hashtags {
+            margin-top: 5px;
+            font-size: 22px;
+        }
+        .hashtags-box {
+            margin-top: 5px;
+            font-size: 22px;
+            background-color: #DDDDDD; /* 박스 배경색 설정 */
+            color: #000000; /* 텍스트 색상 설정 */
+            padding: 5px 10px; /* 내부 여백 설정 */
+            border-radius: 5px; /* 박스 테두리 반경 설정 */
+            display: inline-block; /* 인라인 블록으로 설정하여 옆으로 나란히 배치 */
+        }
+        a {
+            text-decoration: none; /* 밑줄 제거 */
+            display: block; /* 링크를 블록 요소로 변경 */
+            overflow: hidden; /* 내부 요소가 컨테이너를 벗어나지 않도록 함 */
+            text-align: center; /* 텍스트와 이미지를 가운데 정렬 */
+            color: black;
+        }
+        .write-review-button {
+            text-align: right; /* 버튼을 오른쪽 하단에 배치 */
+            margin-top: 50px; /* 다른 내용과의 간격 조절 (필요에 따라 조정) */
+        }
+
+        .write-review {
+            background-color: #04B404; /* 버튼 배경색 */
+            border: none; /* 테두리 제거 */
+            padding: 5px 5px; /* 내용과 버튼 사이 여백 조절 (필요에 따라 조정) */
+            border-radius: 5px; /* 버튼 모서리 둥글게 만들기 (필요에 따라 조정) */
+            cursor: pointer; /* 커서 모양 변경 */
+            font-weight: bold;
+            font-size:30px;
+        }
+
+        .write-review:active {
+            color: blue; /* 클릭 시 글씨 색상을 파란색으로 변경 */
+        }
+
+</style>
+
+<div class="wrapper-box">
+    <div class="image-box">
+        {{#webtoons}}
+        <img class="image" src="{{thumbnailUrl}}" alt="이미지 설명">
+        {{/webtoons}}
+    </div>
+        <div class="description-box">
+            {{#webtoons}}
+            <div class="title"><a href="/webtoons/reviews/{{webtoonId}}">{{title}}</a></div>
+            <div class="info-box">
+                <div class="author"><strong>글 작가/그림 작가 :</strong>&nbsp;&nbsp;{{writer}} / {{painter}}</div>
+                <div class="rating"><strong>별점 :</strong>&nbsp;&nbsp;{{starScore}}</div>
+                <div class="age-limit"><strong>연령 제한 :</strong> &nbsp;&nbsp;{{age}}</div>
+                <div class="publication-date"><strong>연재 요일 :</strong> &nbsp;&nbsp;{{publishDay}}</div>
+                <div class="interest"><strong>관심도 :</strong>&nbsp;&nbsp; {{favorite}}</div>
+                <div class="hashtags"><strong>관련 키워드 :</strong> </div>
+                {{#hashTagList}}
+                    <a href="#" class="hashtags-box" onclick="redirectToSearch('{{.}}');" class="hashtags-box"><strong>#{{.}}</strong></a>
+                {{/hashTagList}}
+            </div>
+            <div class="write-review-button">
+                <button class="write-review">
+                    <a href="/webtoons/reviews/create/{{webtoonId}}">리뷰 쓰기</a>
+                </button>
+            </div>
+            {{/webtoons}}
+        </div>
+    </div>
+</div>
+
+<script>
+function redirectToSearch(tag) {
+    if(tag.includes("/")){
+        tag = tag.replace("/","&");
+    }
+    const url = `/webtoons/search/${tag}`;
+    window.location.href = url;
+}
+</script>
+
+{{>layouts/footer}}
